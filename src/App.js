@@ -4,13 +4,10 @@ import './App.css';
 import SearchBar from './components/SearchBar'
 import ImageGallery from './components/ImageGallery'
 import Button from './components/Button'
-// import Loader from './components/Loader'
 import Modal from './components/Modal'
 import * as axios from 'axios'
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Loader from 'react-loader-spinner'
-
-
 const apiKey = '20377131-0ebe9e49bfd56e929e88257a9'
 class App extends Component {
 
@@ -21,7 +18,6 @@ class App extends Component {
     showModal: false,
     imageSrc: '',
     isLoading: false
-    // isLoadMore: false,
   }
 
 
@@ -85,7 +81,7 @@ class App extends Component {
           toggleModal={this.toggleModal}
         />
         {images.length > 0 && !isLoading && <Button toggleLoader={this.toggleLoader} fetchImages={this.fetchImages} />}
-        {this.state.isLoading &&
+        {isLoading &&
           <div className='loader'><Loader type="BallTriangle" color="#000080" height={40} width={40} /></div>}
         {showModal &&
           <Modal

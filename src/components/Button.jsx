@@ -6,7 +6,6 @@ const Button = (props) => {
     const onLoadMoreClick = () => {
         props.fetchImages();
         props.toggleLoader()
-        // props.onSmoothScroll()
     }
     return (
         <div className={styles.containerMore}>

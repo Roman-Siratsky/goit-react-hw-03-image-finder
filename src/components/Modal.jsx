@@ -1,11 +1,6 @@
 import React, { Component } from 'react'
 import styles from './Modal.module.css';
 import {createPortal} from 'react-dom'
-// import * as basicLightbox from 'basiclightbox'
-
-// const instance = basicLightbox.create(`
-//     <img src="assets/images/image.png" width="800" height="600">
-// `)
 
 const modalRoot = document.querySelector('#modal-root')
 
