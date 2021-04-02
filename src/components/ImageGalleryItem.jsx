@@ -1,17 +1,12 @@
 import React from 'react'
 import styles from './imageGallery.module.css'
 
-const ImageGalleryItem = (props) => {
-
-
-
+const ImageGalleryItem = ({image, toggleModal}) => {
     return (
-        props.images.map(image => {
-            return (
                 <li className={styles.listItem}>
                     <img onClick={(e) => {
                         if (e.currentTarget === e.target) {
-                            props.toggleModal(image.largeImageURL);
+                            toggleModal(image.largeImageURL);
                         }
                     }}
                         src={image.previewURL}
@@ -19,8 +14,6 @@ const ImageGalleryItem = (props) => {
                         className={styles.listImage} />
                 </li>
             )
-        })
-    )
 }
 
 export default ImageGalleryItem;

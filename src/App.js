@@ -5,10 +5,10 @@ import SearchBar from './components/SearchBar'
 import ImageGallery from './components/ImageGallery'
 import Button from './components/Button'
 import Modal from './components/Modal'
-import * as axios from 'axios'
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Loader from 'react-loader-spinner'
-const apiKey = '20377131-0ebe9e49bfd56e929e88257a9'
+import fetchPictures from './services/api'
+
 class App extends Component {
 
   state = {
@@ -34,8 +34,7 @@ class App extends Component {
 
   fetchImages = () => {
     const {currentPage, searchQuery} = this.state
-    return axios.get(`https://pixabay.com/api/?q=${searchQuery}&page=${currentPage}&key=${apiKey}&image_type=photo&orientation=horizontal&per_page=12`)
-      .then(res => res.data).then(data => data.hits)
+    fetchPictures(searchQuery, currentPage)
       .then((pictures) => {
         this.setState(prevState => ({
           ...prevState,

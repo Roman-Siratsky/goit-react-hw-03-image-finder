@@ -6,7 +6,11 @@ const ImageGallery = (props) => {
     console.log(props.images);
     return (
         <ul className={styles.imageGallery}>
-            <ImageGalleryItem images={props.images} toggleModal={ props.toggleModal}/>
+            {props.images.map(image => {
+                return (
+                    <ImageGalleryItem key={image.id} image={image} toggleModal={props.toggleModal}/>
+                )
+            })}
         </ul>
     )
 }
